@@ -4,6 +4,12 @@ const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
+
+//declaring variable for dynamic dot navigation
+// const dotNav = document.querySelector('.dots');
+const dotNav = document.querySelector('.dots');
+
+
 // selected image 
 let sliders = [];
 
@@ -12,6 +18,20 @@ let sliders = [];
 // Find the name in the url and go to their website
 // to create your own api key
 const KEY = '15674931-a9d714b6e9d654524df198e00&q';
+
+
+
+//dynamic dots for navigation
+const dynamicDotNav = () => {
+
+  for(let i=0; i<sliders.length; i++){
+    const circleNav = document.createElement('span');
+    circleNav.classList.add('dot');
+    dotNav.appendChild(circleNav);
+  }
+
+
+}
 
 // show images 
 const showImages = (images) => {
@@ -99,6 +119,9 @@ const createSlider = () => {
     slideIndex++;
     changeSlide(slideIndex);
   }, duration);
+
+  //calling dynamic dot nav function
+  dynamicDotNav();
 }
 
 // change slider index 

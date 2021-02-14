@@ -55,6 +55,10 @@ img {
   margin: 0 3px;
 }
 
+.dot.isActive{
+  background-color: salmon;
+}
+
 .main {
   display: none;
 }
