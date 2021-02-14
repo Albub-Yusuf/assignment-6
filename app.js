@@ -8,6 +8,7 @@ const sliderContainer = document.getElementById('sliders');
 //declaring variable for dynamic dot navigation
 // const dotNav = document.querySelector('.dots');
 const dotNav = document.querySelector('.dots');
+let hasDotNav = false;
 
 
 // selected image 
@@ -30,8 +31,22 @@ const dynamicDotNav = () => {
     dotNav.appendChild(circleNav);
   }
 
+  hasDotNav = true; 
+
 
 }
+
+
+//remove previous list child
+const removeDotNav = () => {
+
+  for(let i=sliders.length; i>0; i--){
+    dotNav.removeChild(dotNav.children[dotNav.children.length-1]);
+  }
+
+  hasDotNav = false;
+}
+
 
 // show images 
 const showImages = (images) => {
@@ -154,6 +169,9 @@ searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
+  if(hasDotNav == true){
+    removeDotNav();
+  }
   getImages(search.value)
   sliders.length = 0;
 });
