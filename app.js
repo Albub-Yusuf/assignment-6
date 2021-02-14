@@ -28,6 +28,9 @@ const dynamicDotNav = () => {
   for(let i=0; i<sliders.length; i++){
     const circleNav = document.createElement('span');
     circleNav.classList.add('dot');
+    circleNav.addEventListener('click', function(){
+      document.getElementById('sliderSingleImage').src = `${sliders[i]}`;
+    });
     dotNav.appendChild(circleNav);
   }
 
@@ -89,10 +92,6 @@ const selectItem = (event, img) => {
 }
 
 
-
-
-
-
 var timer;
 const createSlider = () => {
 
@@ -124,7 +123,7 @@ const createSlider = () => {
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
-    item.innerHTML = `<img class="w-100"
+    item.innerHTML = `<img id="sliderSingleImage" class="w-100"
     src="${slide}"
     alt="">`;
     sliderContainer.appendChild(item)
