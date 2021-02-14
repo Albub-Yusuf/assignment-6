@@ -9,10 +9,8 @@ const sliderContainer = document.getElementById('sliders');
 const dotNav = document.querySelector('.dots');
 let hasDotNav = false;
 
-
 // selected image 
 let sliders = [];
-
 
 // If this key doesn't work
 // Find the name in the url and go to their website
@@ -38,10 +36,7 @@ const dynamicDotNav = () => {
     });
     dotNav.appendChild(circleNav);
   }
-
   hasDotNav = true;
-
-
 }
 
 
@@ -51,7 +46,6 @@ const removeDotNav = () => {
   for (let i = sliders.length; i > 0; i--) {
     dotNav.removeChild(dotNav.children[dotNav.children.length - 1]);
   }
-
   hasDotNav = false;
 }
 
@@ -92,14 +86,11 @@ const selectItem = (event, img) => {
     sliders.push(img);
   } else {
     // alert('Hey, Already added !');
-
-
-
   }
 }
 
-
 var timer;
+
 const createSlider = () => {
 
   const duration = document.getElementById('duration').value || 1000;
