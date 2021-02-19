@@ -83,9 +83,13 @@ const selectItem = (event, img) => {
 
   let item = sliders.indexOf(img);
   if (item === -1) {
-    sliders.push(img);
-  } else {
-    // alert('Hey, Already added !');
+    if(checker == true){
+      sliders.push(img);
+     
+    }
+  }
+  else {
+    sliders.splice(item,1);  
   }
 }
 
